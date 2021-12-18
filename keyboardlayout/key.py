@@ -137,3 +137,7 @@ class Key(Enum):
     U_CIRCUMFLEX = 'û'
     SECTION = '§'
     MU = 'μ'
+    # qwertyJpn106
+    YEN = '¥'          # 注意 これは、IMEPadで入力した、半角￥。バックスラッシュではない。
+
+

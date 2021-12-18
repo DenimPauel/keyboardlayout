@@ -3,6 +3,12 @@ import argparse
 import keyboardlayout as kl
 import keyboardlayout.pygame as klp
 import pygame
+# event.key may not be available on Python3 --->>>
+import pygame.event
+import pygame.key
+import pygame.display
+# event.key may not be available on Python3 <<<---
+
 
 grey = pygame.Color('grey')
 dark_grey = ~pygame.Color('grey')
@@ -46,11 +52,13 @@ def run_until_user_closes_window(
             if event.type == pygame.QUIT:
                 running = False
                 break
-            elif event.key == pygame.K_ESCAPE:
-                playing = False
-                break
-
-            key_name = pygame.key.name(event.key)
+# event.key may not be available on Python3 --->>>
+#            elif event.key == pygame.K_ESCAPE:
+#                playing = False
+#                break
+#            key_name = pygame.key.name(event.key)
+            key_name = pygame.key
+# event.key may not be available on Python3 <<<---
             key = keyboard.get_key(event)
             if key is None:
                 continue
@@ -95,7 +103,9 @@ if __name__ == "__main__":
         'layout_name',
         nargs='?',
         type=kl.LayoutName,
-        default=kl.LayoutName.QWERTY,
+        # handle Japanese 106 keyboard --->>>
+        default=kl.LayoutName.QWERTYJPN106,   #kl.LayoutName.QWERTY,
+        # handle Japanese 106 keyboard --->>>
         help='the layout_name to use'
     )
     args = parser.parse_args()

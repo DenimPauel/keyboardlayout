@@ -102,5 +102,41 @@ KEY_MAP_BY_LAYOUT = {
             pygame.K_MINUS: Key.RIGHTPAREN,
         },
         **__MAPPING_BASE,
-    }
+    },
+    LayoutName.QWERTYJPN106: {
+        **{
+            pygame.K_1: Key.DIGIT_1,
+            pygame.K_2: Key.DIGIT_2,
+            pygame.K_3: Key.DIGIT_3,
+            pygame.K_4: Key.DIGIT_4,
+            pygame.K_5: Key.DIGIT_5,
+            pygame.K_6: Key.DIGIT_6,
+            pygame.K_7: Key.DIGIT_7,
+            pygame.K_8: Key.DIGIT_8,
+            pygame.K_9: Key.DIGIT_9,
+            pygame.K_0: Key.DIGIT_0,
+            pygame.K_MINUS: Key.MINUS,
+            # added --->>>
+            pygame.K_AT: Key.AT,                    # @ mark
+            # \ : U+005C 逆Solidus 半角￥は、U+00A5 decimalだと 165
+            pygame.KSCAN_NONUSBACKSLASH: Key.YEN,   # yen対応  （調査中）
+            #pygame.KSCAN_BACKSLASH: Key.YEN,   # yen対応 （調査中）
+            #165: Key.XXXX,   #0xA5
+            #キーマップ関連の情報
+            # http://web.yl.is.s.u-tokyo.ac.jp/~hedkandi/camera/keymap.py
+            # PygameのあるボタンのKeyコマンドがわからない。
+            # https://teratail.com/questions/319347
+            # 半角/全角キー押下時、key値は96 (K_BACKQUOTE)です。英語キーで ` がある位置だからか？
+            # 
+            #if event.type == pygame.KEYDOWN:
+            #    if event.scancode == 121:
+            #        print("変換")
+            #    elif event.scancode == 41: #0x29
+            #        print("半角/全角")
+            #
+            # added <<<---
+        },
+        **__MAPPING_BASE,
+	},
+
 }

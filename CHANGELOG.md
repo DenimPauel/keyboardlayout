@@ -1,3 +1,7 @@
+# 2.0.1J
+- Japanese 106 key
+- work on Python 3 
+
 # 2.0.1
 - Fix: Key name for top left azerty key changed from 2 to ²
   In tkinter and pygame I do not know its key code value because I have a qwerty keyboard
